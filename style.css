@@ -23,17 +23,21 @@ textarea{
 
 .description{
   white-space: pre-wrap;
+
 }
 
 .time-block{
   text-align: center;
+  vertical-align: middle;
   border-radius: 15px;
 }
 
 .row {
   white-space: pre-wrap;
+  border-top: 1px solid white;
   height: 80px;
-  border-top: 1px solid white;;
+  /* justify the task list items to middle/center */
+  vertical-align:middle;
 }
 
 .hour {
@@ -57,15 +61,28 @@ textarea{
   color: white;
 }
 
-.saveBtn {
+.save-but {
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
   background-color: #06AED5;
-  color: white;
+  color: #ddd;
+  position: relative;
+
+}
+.save-but i{
+  margin-top: 15px;
+  position: absolute;
+  top: 25%;
+  right: 40%;
+  font-size: 25px;
 }
 
-.saveBtn i:hover {
-  font-size: 20px;
+.save-but:hover i{
+  font-size: 30px;
+  color: #fff;
   transition: all .3s ease-in-out;
 }
+
+
+
