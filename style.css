@@ -57,7 +57,6 @@ textarea{
   background-color: #77dd77;
   color: white;
 }
-
 .save-but{
   border-left: 1px solid black;
   border-top-right-radius: 15px;
@@ -85,6 +84,10 @@ textarea{
 .disabled{
   opacity: .5;
 
+}
+.past  .save-but{
+  pointer-events: none;
+  cursor: not-allowed;
 }
 
 

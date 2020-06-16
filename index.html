@@ -29,9 +29,46 @@
     <p id="currentDay" class="lead"></p>
   </header>
   <div class="container" id="container">
-    <section class="row past">
+    
+  <!-- end container -->
+  </div> 
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script>
+// refs to DOM
+var container = document.getElementById("container");
+var item = document.getElementById("item");
+var timeContainer = document.getElementsByClassName("time-container");
+var currentTime = moment();
+var startTime = moment('09:00a', "HH:mm a");
+var endTime = moment('05:30p', "HH:mm a");
+var rowClass = "present";
+
+// array of moment.js object for work hours
+var hours = [moment("09:00a", "HH:mm a"),moment("10:00a", "HH:mm a"),moment("11:00a", "HH:mm a"),moment("12:00p", "HH:mm a"),moment("1:00p", "HH:mm a"),
+moment("2:00p", "HH:mm a"),moment("3:00p", "HH:mm a"),moment("4:00p", "HH:mm a"),moment("5:00p", "HH:mm a")];
+
+
+
+// set the current day
+$( "#currentDay" ).text(currentTime.format("MMM, DD, YYYY - hh:mm a"));
+console.log(currentTime._d)
+ 
+$.each( hours, function( index, value ){
+  console.log(value._i);
+
+  if (startTime.isBefore(currentTime)){
+    console.log(this + " " + "it worked")
+  }
+
+
+
+    // create the task template
+  var template = `
+    <section class="row ${rowClass}" id="item">
       <div class="col-3 time-block hour">
-        <p>time here</p>
+        <p class="time-container">${value._i}</p>
       </div>
       <div class="col-8 textarea">
         <p>input</p>
@@ -39,11 +76,41 @@
       <div class="col-1 save-but">
         <i class="fa fa-save" id="saveBtn"></i>
      </div>
-
     </section>
-  </div>
+    `;
 
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  container.insertAdjacentHTML("beforeend", template);
+  console.log(hours)
+  
+});
+
+
+
+
+// todo: need to create the list from moment.js because I need to check the values
+// in every item to add the class 
+
+// $.each(hours, function() {
+  
+//   if(before = "false"){
+//       console.log("it worked" + before);
+//       item.addClass("future")
+//   }else if(before = "true"){
+//       console.log("it worked" + before);
+//       item.classList = "past";
+//   }else{
+//     console.log("it worked" + before);
+//     tem.classList = "present";
+//   }
+ 
+
+
+// });
+
+    
+  
+
+
+</script>
 </body>
 </html>
