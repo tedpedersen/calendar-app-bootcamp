@@ -35,6 +35,8 @@ textarea{
   border-top: 2px solid white;
   height: 80px;
   padding: 0;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
 .hour {
@@ -88,6 +90,7 @@ textarea{
 .past  .save-but{
   pointer-events: none;
   cursor: not-allowed;
+  opacity: .2;
 }
 
 
