@@ -9,8 +9,7 @@ textarea{
   border: none;
   resize: none;
   color: #000000;
-  border-left: 1px solid black;
-
+  width: 100%;
 }
 
 .jumbotron {
@@ -43,6 +42,7 @@ textarea{
   background-color: #ffffff;
   color: #000000;
   border-top: 2px solid #999;
+  border-right: 1px solid #000;
 }
 
 .past {
