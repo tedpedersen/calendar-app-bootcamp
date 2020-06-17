@@ -82,9 +82,9 @@ textarea{
   color: #fff;
   transition: all .3s ease-in-out;
 }
+/* disable input and save if event is in past */
 .disabled{
   opacity: .5;
-
 }
 .past  .save-but{
   pointer-events: none;
