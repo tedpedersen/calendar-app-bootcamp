@@ -67,7 +67,6 @@ textarea{
   color: #ddd;
   position: relative;
   height: 79px;
-
 }
 .save-but i{
   position: absolute;
@@ -92,6 +91,7 @@ textarea{
   cursor: not-allowed;
   opacity: .2;
 }
+
 
 
 

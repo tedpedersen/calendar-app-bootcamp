@@ -18,90 +18,20 @@
   href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
   rel="stylesheet"
   />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
   <title>Work Day Scheduler</title>
 </head>
-
 <body>
   <header class="jumbotron">
     <h1 class="display-3">Work Day Scheduler</h1>
     <p class="lead">A simple calendar app for scheduling your work day</p>
-    <p id="currentDay" class="lead"></p>
+    <p class="lead">Last Login: <span id="currentDay"></span></p>
   </header>
   <div class="container" id="container">
-    
-  <!-- end container -->
-  </div> 
-
+  </div>
+  <!-- end container --> 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-<script>
-// refs to DOM
-var container = document.getElementById("container");
-var item = document.getElementById("item");
-var timeContainer = document.getElementsByClassName("time-container");
-var currentTime = moment();
-var rowClass = "present";
-
-// array of moment.js object for work hours
-var hours = [moment("09:00a", "HH:mm a"),moment("10:00a", "HH:mm a"),moment("11:00a", "HH:mm a"),moment("12:00p", "HH:mm a"),moment("1:00p", "HH:mm a"),
-moment("2:00p", "HH:mm a"),moment("3:00p", "HH:mm a"),moment("4:00p", "HH:mm a"),moment("5:00p", "HH:mm a")];
-
-
-
-// set the current day
-$( "#currentDay" ).text(currentTime.format("MMM, DD, YYYY - hh:mm a"));
-console.log(currentTime._d)
- 
-//creates the elements for each hour
-$.each( hours, function( index, value ){
-  var rowTime = this; 
-  //check the time and set the class
-  if (rowTime.isAfter(currentTime)){
-    console.log(value._i + " " + "it worked")
-    rowClass="future";
-  }
-  else if(rowTime.format("hh") === currentTime.format("hh") ){
-    rowClass="present";
-  }
-  else{
-    rowClass="past";
-  }
-  // create the row template
-  var template = `
-    <section class="row ${rowClass}" id="item">
-      <div class="col-3 time-block hour">
-        <p class="time-container">${value._i}</p>
-      </div>
-      <div class="col-8">
-        <textarea id="${value._i}" data-store="${value._i}" name="userText" col="50">
-          Enter a task and click the icon to save.
-        </textarea>
-      </div>
-      <div class="col-1 save-but">
-        <i class="fa fa-save" id="saveBtn"></i>
-     </div>
-    </section>
-    `;
-
-  container.insertAdjacentHTML("beforeend", template);
-  $("*[data-store]").each(function () {
-    $(this).val(localStorage.getItem("item-" + $(this).attr("data-store")));
-  });
-  //todo, make this this button click not keyUp
-  $("*[data-store]").on("keyup", function (itm) {
-    localStorage.setItem ("item-" + $(this).attr("data-store"), $(this).val());
-  })
-
-  
-});
-
-
-
-    
-  
-
-
-</script>
+<script src="./assets/js/script.js"></script>
 </body>
 </html>
