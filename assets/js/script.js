@@ -7,7 +7,7 @@ var currentTime = moment();
 //class to color row
 var rowClass = "present";
 //to make past events readonly
-// var readOnly = "";
+var readOnly = "";
 
 // array of moment.js object for work hours
 var hours = [moment("09:00a", "HH:mm a"),moment("10:00a", "HH:mm a"),moment("11:00a", "HH:mm a"),moment("12:00p", "HH:mm a"),moment("1:00p", "HH:mm a"),
@@ -31,7 +31,7 @@ $.each( hours, function( index, value ){
   else{
     rowClass="past";
     //make past event readonly
-    // var readOnly = "readonly";
+    var readOnly = "readonly";
   }
   // create the row template
   var template = `
@@ -40,7 +40,7 @@ $.each( hours, function( index, value ){
         <p class="time-container">${value._i}</p>
       </div>
       <div class="col-8">
-        <textarea id="text-${value._i}" data-store="${value._i}" name="${value._i}" col="50" class="user-input">
+        <textarea id="text-${value._i}" data-store="${value._i}" name="${value._i}" ${readOnly} col="50" class="user-input">
           Enter a task and click the icon to save.
         </textarea>
       </div>
