@@ -87,8 +87,8 @@ textarea{
   opacity: .5;
 }
 .past  .save-but{
-  pointer-events: none;
-  cursor: not-allowed;
+  /* pointer-events: none;
+  cursor: not-allowed; */
   opacity: .2;
 }
 
